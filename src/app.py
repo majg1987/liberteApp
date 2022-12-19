@@ -11,6 +11,12 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+# JWTManager object, used to hold JWT settings and callback functions for the Flask-JWT-Extended extension
+from flask_jwt_extended import (JWTManager, jwt_required, create_access_token, get_jwt_identity)
+# import the class wrapper Bcrypt
+from flask_bcrypt import Bcrypt   
+# Importacion de Mail
+from flask_mail import Mail
 
 #from models import Person
 
@@ -32,6 +38,28 @@ db.init_app(app)
 
 # Allow CORS requests to this API
 CORS(app)
+
+# JWT config
+# Wrapper con variable de entorno
+app.config["JWT_SECRET_KEY"] = os.environ.get('JWT_Secret_Key')
+jwt = JWTManager(app)
+
+#configuración de bcrypt
+#Le agregamos al objeto app la propiedad bcrypt para que se pueda
+#consumir en cualquier archivo de la app a traves de current_app la configuración que hicimos
+bcrypt = Bcrypt(app)
+print(bcrypt)
+app.bcrypt = bcrypt
+
+# Configuracion MailTrap
+app.config['MAIL_SERVER']='smtp.mailtrap.io'
+app.config['MAIL_PORT'] = 2525
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+mail = Mail()
+mail.init_app(app)
 
 # add the admin
 setup_admin(app)

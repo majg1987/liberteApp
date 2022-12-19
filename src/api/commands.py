@@ -30,3 +30,4 @@ def setup_commands(app):
         print("All test users created")
 
         ### Insert the code to populate others tables if needed
+

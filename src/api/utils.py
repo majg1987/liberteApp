@@ -1,4 +1,5 @@
 from flask import jsonify, url_for
+from datetime import datetime
 
 class APIException(Exception):
     status_code = 400
@@ -33,9 +34,24 @@ def generate_sitemap(app):
     links_html = "".join(["<li><a href='" + y + "'>" + y + "</a></li>" for y in links])
     return """
         <div style="text-align: center;">
-        <img style="max-height: 80px" src='https://storage.googleapis.com/breathecode/boilerplates/rigo-baby.jpeg' />
+        <img style="max-height: 80px" src='https://github.com/4GeeksAcademy/react-flask-hello/blob/4677c732f09717c85156fbd71c147f0d98fcac6f/docs/assets/rigo-baby.jpg?raw=true' />
         <h1>Rigo welcomes you to your API!!</h1>
         <p>API HOST: <script>document.write('<input style="padding: 5px; width: 300px" type="text" value="'+window.location.href+'" />');</script></p>
         <p>Start working on your project by following the <a href="https://start.4geeksacademy.com/starters/full-stack" target="_blank">Quick Start</a></p>
         <p>Remember to specify a real endpoint path like: </p>
         <ul style="text-align: left;">"""+links_html+"</ul></div>"
+
+def check_user_id(id):
+    try:
+        user_id = int(id)
+        response_body = {}
+    except Exception as e:
+        user_id = 'Error in user_id'
+        response_body = {
+            "result": f'Error in user_id {id}',
+            "flask_error": str(e) 
+        }
+    return user_id, response_body
+
+def get_current_date():
+    return datetime.now().strftime("%d-%m-%Y")

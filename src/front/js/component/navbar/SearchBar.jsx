@@ -29,6 +29,12 @@ export function SearchBar() {
         <Link
           className="text-black text-decoration-none"
           to={`/perfil/${option.id}`}
+          onClick={() => {
+            store.artista = { id: undefined };
+            store.artistaGaleriaFiltered = [];
+
+          }
+          }
         >
           {option.nombre} {option.apellido}
         </Link>

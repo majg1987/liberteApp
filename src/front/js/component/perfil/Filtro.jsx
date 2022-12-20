@@ -27,11 +27,14 @@ export const Filtro = (props) => {
     });
   };
 
+
+
   useEffect(() => {
+
     if (typeof store.artista.id !== "undefined") {
       actions.perfil_galeria(store.artista.id, Filtros);
     }
-  }, [store.artista, Filtros]);
+  }, [Filtros]);
 
   return (
     <>
@@ -129,13 +132,16 @@ export const Filtro = (props) => {
               </div>
             </div>
           </nav>
-          {store.artistaGaleriaFiltered.length > 0 ? (
+
+          {
             <Galeria
               id={props.id}
               nombreArtista={props.nombreArtista}
               fotoArtista={props.fotoArtista}
             />
-          ) : null}
+
+          }
+
         </div>
       ) : null}
     </>

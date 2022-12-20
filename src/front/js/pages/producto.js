@@ -181,7 +181,14 @@ export const Producto = () => {
 
                         <Link
                           className="text-black text-decoration-none"
+                          // to={`/perfil/${store.productoSelect.idUser}`}
                           to={`/perfil/${store.productoSelect.idUser}`}
+                          onClick={() => {
+                            store.artista = { id: undefined };
+                            store.artistaGaleriaFiltered = [];
+
+                          }
+                          }
                         >
                           {store.productoSelect.nombreArtista}
                         </Link>

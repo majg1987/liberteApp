@@ -32,20 +32,9 @@ export const Filtro = (props) => {
   useEffect(() => {
 
     if (typeof store.artista.id !== "undefined") {
-      console.log(store.artista.id, "arid");
-      console.log("filtro", Filtros)
-      // Filtros !== {
-      //   precio_min: "",
-      //   precio_max: "",
-      //   categoria: "",
-      //   vendido: false,
-      // } &&
-      const perfil = actions.perfil_galeria(store.artista.id, Filtros);
-
-
+      actions.perfil_galeria(store.artista.id, Filtros);
     }
   }, [Filtros]);
-  // }, [store.artista, Filtros]);
 
   return (
     <>
@@ -143,7 +132,7 @@ export const Filtro = (props) => {
               </div>
             </div>
           </nav>
-          {console.log("hola")}
+
           {
             <Galeria
               id={props.id}
@@ -152,13 +141,7 @@ export const Filtro = (props) => {
             />
 
           }
-          {/* {store.artistaGaleriaFiltered.length > 0 ? (
-            <Galeria
-              id={props.id}
-              nombreArtista={props.nombreArtista}
-              fotoArtista={props.fotoArtista}
-            />
-          ) : null} */}
+
         </div>
       ) : null}
     </>

@@ -40,7 +40,7 @@ export const Galeria = (props) => {
       <div className="container">
         <div className="gallery me-4">
           <ul>
-            {console.log(store.artistaGaleriaFiltered)}
+
             {store.artistaGaleriaFiltered && store.artistaGaleriaFiltered.map((obra) => (
               <div key={obra.id}>
                 <Obra

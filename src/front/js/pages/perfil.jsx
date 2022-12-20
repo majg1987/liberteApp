@@ -23,12 +23,6 @@ export const Perfil = () => {
 
     actions.perfil_artista(id);
 
-    // actions.perfil_galeria(id, {
-    //   precio_min: "",
-    //   precio_max: "",
-    //   categoria: "",
-    //   vendido: false,
-    // });
   }, [id]);
 
 

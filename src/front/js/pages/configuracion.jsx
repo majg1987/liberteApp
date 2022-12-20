@@ -42,7 +42,7 @@ export const ConfiguracionUsuario = () => {
       setImagenSelect(file.secure_url);
       setLoading(false);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 
@@ -91,7 +91,7 @@ export const ConfiguracionUsuario = () => {
     }
   }, [store.configuracionError]);
 
-  store.direccion.tipo_via && console.log("TIPOVIA", store.direccion.tipo_via);
+
 
   return (
     // Vista configuracion usuario
@@ -175,7 +175,6 @@ export const ConfiguracionUsuario = () => {
                       onClick={(e) => {
                         setArtista(false);
                         setArtistProvisional(false);
-                        console.log("tvalue", e.target.value);
                       }}
                     />
                   </div>
@@ -193,7 +192,6 @@ export const ConfiguracionUsuario = () => {
                       onClick={(e) => {
                         setArtista(true);
                         setArtistProvisional(true);
-                        console.log("tvalue", e.target.value);
                       }}
                     />
                   </div>
@@ -367,7 +365,6 @@ export const ConfiguracionUsuario = () => {
                     onClick={(e) => enviarCambiosUsuario(e)}
                   >
                     Guardar
-                    {console.log("artista", artista)}
                   </button>
                 </div>
               </div>

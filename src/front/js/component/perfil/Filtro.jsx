@@ -27,11 +27,25 @@ export const Filtro = (props) => {
     });
   };
 
+
+
   useEffect(() => {
+
     if (typeof store.artista.id !== "undefined") {
-      actions.perfil_galeria(store.artista.id, Filtros);
+      console.log(store.artista.id, "arid");
+      console.log("filtro", Filtros)
+      // Filtros !== {
+      //   precio_min: "",
+      //   precio_max: "",
+      //   categoria: "",
+      //   vendido: false,
+      // } &&
+      const perfil = actions.perfil_galeria(store.artista.id, Filtros);
+
+
     }
-  }, [store.artista, Filtros]);
+  }, [Filtros]);
+  // }, [store.artista, Filtros]);
 
   return (
     <>
@@ -129,13 +143,22 @@ export const Filtro = (props) => {
               </div>
             </div>
           </nav>
-          {store.artistaGaleriaFiltered.length > 0 ? (
+          {console.log("hola")}
+          {
             <Galeria
               id={props.id}
               nombreArtista={props.nombreArtista}
               fotoArtista={props.fotoArtista}
             />
-          ) : null}
+
+          }
+          {/* {store.artistaGaleriaFiltered.length > 0 ? (
+            <Galeria
+              id={props.id}
+              nombreArtista={props.nombreArtista}
+              fotoArtista={props.fotoArtista}
+            />
+          ) : null} */}
         </div>
       ) : null}
     </>

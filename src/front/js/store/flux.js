@@ -403,6 +403,7 @@ const getState = ({
                 }
             },
             perfil_galeria: async (id, filters) => {
+
                 try {
                     const response = await fetch(
                         process.env.BACKEND_URL + `/api/perfil_galeria?id=${id}`

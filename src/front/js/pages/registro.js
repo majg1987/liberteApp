@@ -69,7 +69,7 @@ export const Registro = () => {
                 value={nombre}
               />
               <input
-                type="email"
+                type="text"
                 className="input-registro"
                 id="email"
                 placeholder="Introduce tu email (name@gmail.com)"

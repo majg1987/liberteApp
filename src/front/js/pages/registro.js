@@ -28,7 +28,7 @@ export const Registro = () => {
     if (
       nombre !== "" &&
       /^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/i.test(nombre) &&
-      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email) &&
+      /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/i.test(email) &&
       password !== "" &&
       password === passwordRepeat
     ) {

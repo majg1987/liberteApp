@@ -53,13 +53,13 @@ export const Inicio = () => {
 
       {/* Seccion productos */}
 
-      <div className="container container-titulo-productos">
+      <div className="container container-titulo-productos d-flex justify-content-center">
         <p className="titulo-seccion-producto fst-italic fw-light mt-3 mb-4">
           Productos
         </p>
       </div>
 
-      <div className="container container-lista-productos">
+      <div className="container container-lista-productos d-flex justify-content-center">
         <div className="row  row-productos">
           <Masonry
             breakpointCols={breakpoints}
